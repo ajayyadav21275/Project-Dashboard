@@ -60,7 +60,7 @@ function Project() {
         </div>
            <div className="col-md-4">
           <div className="d-flex justify-content-between align-items-center mb-2">
-            <h5>  In Progress 
+            <h5>  Completed
               <span className="badge bg-success ms-2">
                 {tasks.progress.length}
               </span>
