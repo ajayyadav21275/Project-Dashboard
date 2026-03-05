@@ -1,15 +1,18 @@
 import { useMemo, useState, useEffect } from "react";
 import DataTable from "react-data-table-component";
-import { Data } from "./Task";
+import { useTask } from "./manegment/TaskContext";
 import debounce from "lodash/debounce";
+import { useNavigate } from "react-router-dom";
 
 function Table() {
+  const { state, dispatch } = useTask();
+  const navigate = useNavigate();
 
   const [search, setSearch] = useState("");
   const [debouncedSearch, setDebouncedSearch] = useState("");
   const [selectedId, setSelectedId] = useState(null);
 
-  // Debounce function
+
   const handleSearch = useMemo(
     () =>
       debounce((value) => {
@@ -32,10 +35,10 @@ function Table() {
 
 
 
-  // filter search bar data//
-  const filterData = Data.filter((e) =>
-    e.name.toLowerCase().includes(debouncedSearch.toLowerCase()) ||
-    e.id.toString().includes(debouncedSearch)
+
+  const filterData = state.tasks.filter((e) =>
+    e.name?.toLowerCase().includes(debouncedSearch.toLowerCase()) ||
+    e.id?.toString().includes(debouncedSearch)
   );
 
   const columns = [
@@ -74,6 +77,15 @@ function Table() {
       name: "Due",
       selector: (row) => row.due,
       sortable: true,
+    },
+    {
+      name: "Action",
+      selector: (row) =>
+        <>
+          <button className="btn btn-dark btn-sm" onClick={() => navigate(`/edit-task/${row.id}`)}>Edit</button>&nbsp;
+          <button className="btn btn-danger btn-sm" onClick={() => dispatch({ type: "DELETE_TASK", payload: row.id })}>Delete</button>
+        </>
+
     },
   ];
 
