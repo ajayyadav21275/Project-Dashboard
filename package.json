@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@hello-pangea/dnd": "^18.0.1",
+    "axios": "^1.13.6",
     "i18next": "^25.8.13",
     "lodash": "^4.17.23",
     "react": "^19.2.0",

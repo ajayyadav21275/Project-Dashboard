@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useForm } from "react-hook-form";
 import { useTask } from "./manegment/TaskContext";
 import { v4 as uuidv4 } from "uuid";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 function AddTask() {
     const { register, handleSubmit, reset } = useForm();
@@ -88,7 +88,8 @@ function AddTask() {
 
                         <div className="d-flex justify-content-end mt-4">
                             <button type="button" className="btn btn-secondary me-2" onClick={() => navigate("/")}>Cancel</button>
-                            <button type="submit" className="btn btn-primary px-4">{isEditing ? "Update Task" : "Add Task"}</button>
+                            <button type="submit" className="btn btn-primary px-4">{isEditing ? "Update Task" : "Add Task"}</button><br />
+
                         </div>
                     </form>
                 </div>

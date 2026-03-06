@@ -15,6 +15,9 @@ import Bookmates from "./features/Dashbord/component/sidebar/Bookmates";
 import Dashb from "./features/Dashbord/component/sidebar/Dashb";
 import AddTask from "./features/Dashbord/component/AddTask";
 import { TaskProvider } from "./features/Dashbord/component/manegment/TaskContext";
+import LogIn from "./features/Dashbord/component/LogIn";
+import Routerr from "./features/Dashbord/component/Routes/Routerr";
+
 
 function App() {
   return (
@@ -28,7 +31,8 @@ function App() {
           <div className="col-md-9 col-lg-10 p-4 overflow-auto">
             <Header />
             <Routes>
-              <Route path="/" element={<Dashb />} />
+              <Route path="/" element={<Routerr> <Dashb />
+              </Routerr>} />
               <Route path="/inbox" element={<Inbox />} />
               <Route path="/personal" element={<Personal />} />
               <Route path="/job" element={<Job />} />
@@ -37,8 +41,9 @@ function App() {
               <Route path="/marketing" element={<Marketing />} />
               <Route path="/march-group" element={<MarchGroup />} />
               <Route path="/bookmates" element={<Bookmates />} />
-              <Route path="/add-task" element={<AddTask />} />
               <Route path="/edit-task/:id" element={<AddTask />} />
+              <Route path="/login" element={<LogIn />} />
+              <Route path="/add-task" element={<AddTask />} />
             </Routes>
           </div>
         </div>

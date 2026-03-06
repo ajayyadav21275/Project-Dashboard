@@ -1,6 +1,5 @@
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
-
 function Header() {
   const { t, i18n } = useTranslation();
   const location = useLocation();
@@ -49,6 +48,9 @@ function Header() {
         <button type="button" className="btn btn-primary" onClick={() => navigate("/add-task")}>
           +Add Task
         </button>&nbsp;
+        <button className="btn btn-primary" onClick={() => navigate("/login")}>
+          Login
+        </button>
       </div>
 
     </div>
